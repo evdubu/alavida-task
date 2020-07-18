@@ -1,0 +1,23 @@
+{
+  "orgName": "Alavida Test",
+  "edition": "Developer",
+  "features": [
+        "AuthorApex",
+        "ServiceCloud",
+        "Communities",
+        "PersonAccounts"
+    ],
+  "settings": {
+    "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
+    },
+    "securitySettings": {
+        "passwordPolicies": {
+            "enableSetPasswordInApi": true
+        }
+    },
+    "mobileSettings": {
+        "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
