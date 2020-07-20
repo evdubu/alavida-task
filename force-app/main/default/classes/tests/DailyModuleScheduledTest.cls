@@ -24,6 +24,21 @@ public class DailyModuleScheduledTest {
 
 		List<Module__c> modules = TestDataFactory.generateModules();
 		insert modules;
+
+		// Assign some Daily Modules to patients to begin with
+		List<DailyModule__c> dailyModules = new List<DailyModule__c>();
+		for (Account p : patients) {
+			for (Module__c m : modules) {
+				if(p.Substance__c == m.Type__c || m.Type__c == DailyModuleScheduled.SUBSTANCE_ANY) {
+					dailyModules.add(new DailyModule__c(
+						Account__c = p.Id,
+						Module__c = m.Id
+					));
+					break;
+				}
+			}
+		}
+		insert dailyModules;
 	}
 
 	@isTest

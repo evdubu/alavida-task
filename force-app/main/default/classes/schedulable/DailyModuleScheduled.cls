@@ -51,6 +51,7 @@ global class DailyModuleScheduled implements Schedulable {
 
 		for (Account p : patients) {
 			Set<Id> previousModules = processPreviousModules(p.Daily_Modules__r);
+			// could probs do something here so we're not creating a new list every time
 			List<Module__c> newModules = modules.get(SUBSTANCE_ANY).clone();
 
 			switch on p.Substance__c {
@@ -69,7 +70,7 @@ global class DailyModuleScheduled implements Schedulable {
 			Id newModuleId;
 			do {
 				Integer randomIndex = Integer.valueof(
-					(Math.random() * (newModules.size() - 1))
+					(Math.random() * (newModules.size()))
 				);
 				newModuleId = newModules.get(randomIndex).Id;
 			} while (previousModules.contains(newModuleId));
