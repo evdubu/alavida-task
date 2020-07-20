@@ -34,6 +34,7 @@ global class DailyModuleScheduled implements Schedulable {
 	}
 
 	private List<Account> getAllPatients() {
+		// Making the assumption that all Person Account records are Patients
 		List<Account> patients = [
 			SELECT Id, Substance__c, (SELECT Module__c FROM Daily_Modules__r)
 			FROM Account
@@ -103,6 +104,7 @@ global class DailyModuleScheduled implements Schedulable {
 	}
 
 	private List<String> getModuleTypes() {
+		// Get all types of Modules by extracting the picklist values from the Type__c field
 		List<String> moduleTypes = new List<String>();
 
 		Schema.DescribeFieldResult fieldResult = Module__c.Type__c.getDescribe();
