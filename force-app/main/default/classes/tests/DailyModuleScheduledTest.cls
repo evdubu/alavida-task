@@ -78,7 +78,7 @@ public class DailyModuleScheduledTest {
 			);
 		}
 
-		// Each Account should be assigmed two modules, one from test setup, one from scheduled job
+		// Each Account should be assigned two modules, one from test setup, one from scheduled job
 		for (Account p : patients) {
 			System.assert(p.Daily_Modules__r.size() == 2);
 		}
