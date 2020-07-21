@@ -13,7 +13,7 @@ global class DailyModuleScheduled implements Schedulable {
 	private Map<String, List<Module__c>> getAllModules() {
 		Map<String, List<Module__c>> typeToModuleMap = new Map<String, List<Module__c>>();
 		List<Module__c> modules = [
-			SELECT Id, Type__c, Link__c
+			SELECT Id, Type__c, URL__c
 			FROM Module__c
 			ORDER BY Type__c
 		];

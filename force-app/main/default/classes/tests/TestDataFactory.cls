@@ -26,7 +26,7 @@ public class TestDataFactory {
 		for (String s : moduleTypes) {
 			for (Integer i = 0; i < 10; i++) {
 				mods.add(
-					new Module__c(Link__c = generateRandomString(30), Type__c = s)
+					new Module__c(URL__c = generateRandomString(30), Type__c = s)
 				);
 			}
 		}
