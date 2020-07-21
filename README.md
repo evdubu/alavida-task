@@ -35,9 +35,15 @@ Login with Salesforce credentials (Developer Edition or Production Org) - [DevHu
 
     sfdx force:community:publish -n "Patients" -u <orgname>
 
+### 4. Generate some Module sample data
+This will create some Module records in the Scratch Org
+
+    sfdx force:data:tree:import -p config/sample-data-plan.json -u <orgname>
+
 # Notes & Assumptions
 -  I've setup a Community in the org and as a result, a lot of required Salesforce metadata is included in the project, to enable deployment to a Scratch Org (I've put most of these into subdirectories named 'scaffolding')
 - Custom Apex classes incldued for the purpose of assigning Daily Modules to Accounts are: **DailyModuleScheduled**, **DailyModuleScheduledTest** & **TestDataFactory**
 - The **DailyModuleScheduled** class can be scheduled to run daily from the UI - [Schedule Apex](https://help.salesforce.com/articleView?id=code_schedule_batch_apex.htm&type=5)
-- Custom object definitions, fields & layouts are also included - **DailyModule__c** and **Module__c**s
+- Custom object definitions, fields & layouts are also included - **DailyModule__c** and **Module__c**
 - Assumption that all Person Accounts in the system are patients, and should be assigned a Daily Module
+- I've included a 'Patient Community User' profile that can be asssigned when enabling a Customer User from an Account for the Community

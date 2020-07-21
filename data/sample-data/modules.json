@@ -1,0 +1,36 @@
+{
+	"records": [
+		{
+			"attributes": {
+				"type": "Module__c",
+				"referenceId": "ModuelRef1"
+			},
+			"URL__c": "https://www.addiction.com",
+			"Type__c": "Any"
+		},
+		{
+			"attributes": {
+				"type": "Module__c",
+				"referenceId": "ModuelRef2"
+			},
+			"URL__c": "https://www.alcohol.com",
+			"Type__c": "Alcohol"
+		},
+		{
+			"attributes": {
+				"type": "Module__c",
+				"referenceId": "ModuelRef3"
+			},
+			"URL__c": "https://www.cannabis.com",
+			"Type__c": "Cannabis"
+		},
+		{
+			"attributes": {
+				"type": "Module__c",
+				"referenceId": "ModuelRef4"
+			},
+			"URL__c": "https://www.cocaine.com",
+			"Type__c": "Cocaine"
+		}
+	]
+}

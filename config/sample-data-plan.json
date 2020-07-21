@@ -1,0 +1,8 @@
+[
+	{
+		"sobject": "Module__c",
+		"saveRefs": true,
+		"resolveRefs": false,
+		"files": ["../data/sample-data/modules.json"]
+	}
+]
