@@ -20,7 +20,7 @@ public class TestDataFactory {
 		List<Module__c> mods = new List<Module__c>();
 		List<String> moduleTypes = new List<String>{
 			DailyModuleScheduled.SUBSTANCE_ANY,
-			DailyModuleScheduled.SUBSTANCE_ANY,
+			DailyModuleScheduled.SUBSTANCE_ALCOHOL,
 			DailyModuleScheduled.SUBSTANCE_CANNABIS,
 			DailyModuleScheduled.SUBSTANCE_COCAINE
 		};

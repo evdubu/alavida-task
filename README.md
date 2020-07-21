@@ -46,4 +46,6 @@ This will create some Module records in the Scratch Org
 - The **DailyModuleScheduled** class can be scheduled to run daily from the UI - [Schedule Apex](https://help.salesforce.com/articleView?id=code_schedule_batch_apex.htm&type=5)
 - Custom object definitions, fields & layouts are also included - **DailyModule__c** and **Module__c**
 - Assumption that all Person Accounts in the system are patients, and should be assigned a Daily Module
+- Assumption that there are enough modules in the system so that each patient can be assigned a fresh module each day
+- I've created the job as a scheduled Apex class, but this could also easily be converted to a batch scheduled class to cater for a large number of Account records
 - I've included a 'Patient Community User' profile that can be asssigned when enabling a Customer User from an Account for the Community
