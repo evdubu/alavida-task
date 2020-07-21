@@ -1,5 +1,6 @@
 @isTest
 public class TestDataFactory {
+	// Genarates a single Person Account record
 	public static Account generateSinglePersonAccount(String substance) {
 		Id recTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName()
 			.get('PersonAccount')
@@ -14,6 +15,7 @@ public class TestDataFactory {
 		return acc;
 	}
 
+	// Generates some sample Modules for test data
 	public static List<Module__c> generateModules() {
 		List<Module__c> mods = new List<Module__c>();
 		List<String> moduleTypes = new List<String>{
@@ -25,9 +27,7 @@ public class TestDataFactory {
 
 		for (String s : moduleTypes) {
 			for (Integer i = 0; i < 10; i++) {
-				mods.add(
-					new Module__c(URL__c = generateRandomString(30), Type__c = s)
-				);
+				mods.add(new Module__c(URL__c = generateRandomString(30), Type__c = s));
 			}
 		}
 

@@ -4,6 +4,7 @@ public class DailyModuleScheduledTest {
 
 	@testSetup
 	static void setupData() {
+		// Setup some account data
 		List<Account> patients = new List<Account>();
 		patients.add(
 			TestDataFactory.generateSinglePersonAccount(
@@ -44,7 +45,7 @@ public class DailyModuleScheduledTest {
 	}
 
 	@isTest
-	static void shouldAssignDailyModuleWhereActive() {
+	static void shouldAssignDailyModuleToAccountsBasedOnSubstance() {
 		// Run the scheduled job to assign a Daily Module to all patients
 		Test.startTest();
 
@@ -61,6 +62,12 @@ public class DailyModuleScheduledTest {
 			FROM DailyModule__c
 		];
 
+		List<Account> patients = [
+			SELECT Id, Substance__c, (SELECT Module__c FROM Daily_Modules__r)
+			FROM Account
+			WHERE IsPersonAccount = TRUE
+		];
+
 		System.assertNotEquals(0, dailyModules.size());
 
 		// The type of daily module assigned should match the substance on the account record, or 'Any'
@@ -69,6 +76,11 @@ public class DailyModuleScheduledTest {
 				dm.Module__r.Type__c == dm.Account__r.Substance__c ||
 				dm.Module__r.Type__c == DailyModuleScheduled.SUBSTANCE_ANY
 			);
+		}
+
+		// Each Account should be assigmed two modules, one from test setup, one from scheduled job
+		for (Account p : patients) {
+			System.assert(p.Daily_Modules__r.size() == 2);
 		}
 	}
 }

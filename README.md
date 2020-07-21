@@ -1,11 +1,9 @@
 # Alavida Technical Test
-This repository represents the Alavida Technical Test metadata as a  Salesforce DX project. For more information on Salesforce DX:
-
-[Salesforce Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
+This repository represents the Alavida Technical Test metadata as a Salesforce DX project.
 
 # Project Setup
 
-### Install Salesforce CLI
+### Install the Salesforce CLI
 
 You can install Salesforce CLI via NPM. Once you have NPM installed, simply run:
 
@@ -21,7 +19,7 @@ Navigate to your project directory and execute:
 
     sfdx force:auth:web:login -a DevHub -d
 
-Login with Salesforce credentials (Developer Edition or Production Org) [DevHub](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm).
+Login with Salesforce credentials (Developer Edition or Production Org) - [DevHub](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm).
 
 # Deploy to a Scratch Org
 
@@ -37,6 +35,9 @@ Login with Salesforce credentials (Developer Edition or Production Org) [DevHub]
 
     sfdx force:community:publish -n "Patients" -u <orgname>
 
-# Notes
--  I've setup a community in the org and as a result, a lot of required Salesforce metadata is included in the project to enable deployment to a Scratch Org (I've put these into subdirectories named 'scaffolding')
-- Custom Apex classes incldued are: DailyModuleScheduled, DailyModuleScheduledTest & TestDataFactory
+# Notes & Assumptions
+-  I've setup a Community in the org and as a result, a lot of required Salesforce metadata is included in the project, to enable deployment to a Scratch Org (I've put these into subdirectories named 'scaffolding')
+- Custom Apex classes incldued for the purpose of assigning Daily Modules to Accounts are: **DailyModuleScheduled**, **DailyModuleScheduledTest** & **TestDataFactory**
+- Customer object definitions & fields are also included - **DailyModule__c** and **Module__c**
+- The **DailyModuleScheduled** class can be scheduled to run daily from the UI - [Schedule Apex](https://help.salesforce.com/articleView?id=code_schedule_batch_apex.htm&type=5)
+- Assumption that all Person Accounts in the system are patients, and should be assigned a Daily Module
