@@ -4,7 +4,7 @@
     <containerType>Network</containerType>
     <label>Default Navigation</label>
     <navigationMenuItem>
-        <label>Daily Modules</label>
+        <label>Daily Module</label>
         <position>1</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>DailyModule__c</target>
